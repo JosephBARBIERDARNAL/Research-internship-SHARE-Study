@@ -1,0 +1,281 @@
+# STARTING SESSION ----
+setwd("~/Desktop/STAGE/wave8")
+rm(list=ls())
+library(dplyr)
+library(missForest)
+library(Hmisc)
+library(Amelia)
+library(mice)
+library(rstatix)
+library(tidyr)
+library(tidyverse)
+library(labelled)
+library(questionr)
+library(gtsummary)
+library(RcmdrMisc)
+library(GGally)
+library(effects)
+library(ggeffects)
+library(ggplot2)
+library(car)
+
+# GET RAW DATA ----
+#Aides sociales 
+aides.sociales = read.dta('HH')
+aides.sociales = subset(aides.sociales, select = c('mergeid', 'hh010_'))
+
+#Revenu
+revenu = read.dta('EP')
+revenu = subset(revenu, select = c('mergeid', 'ep205e'))
+
+#Statut marital
+statut.marital = read.dta('DN')
+statut.marital = subset(statut.marital, select = c('mergeid', 'dn014_'))
+
+#Enfants 
+enfants = read.dta('CH')
+enfants = subset(enfants, select = c('mergeid', 'ch001_'))
+
+#Cancer
+cancer = read.dta('PH')
+cancer = subset(cancer, select = c('mergeid', 'ph006d10', 'country'))
+
+#Cigarettes
+BR_data = read.dta('BR')
+cigarette = subset(BR_data, select = c('mergeid', 'br003_', 'br006_'))
+
+#Alcool
+alcool = subset(BR_data, select = c('mergeid', 'br040_'))
+
+#Activity
+sport = subset(BR_data, select = c('mergeid', 'br015_', 'br016_'))
+
+#Education
+education = read.dta('GV ISCED')
+education = subset(education, select = c('mergeid', 'isced2011_r'))
+
+# MERGING DATASET ----
+data = merge(aides.sociales,
+              revenu,
+              by ='mergeid')
+data = merge(data,
+             statut.marital,
+             by ='mergeid')
+data = merge(data,
+             enfants,
+             by ='mergeid')
+data = merge(data,
+             cancer,
+             by ='mergeid')
+data = merge(data,
+             cigarette,
+             by = 'mergeid')
+data = merge(data,
+             alcool,
+             by='mergeid')
+data = merge(data,
+             sport,
+             by='mergeid')
+data = merge(data,
+             education,
+             by='mergeid')
+
+#Delete from the environment useless dataframe
+remove(aides.sociales, alcool, BR_data, cancer, cigarette,
+       education, enfants, revenu, sport, statut.marital)
+
+# RENAME COLUMNS ----
+names(data)[names(data) == 'hh010_'] = 'aides.sociales'
+names(data)[names(data) == 'ep205e'] = 'income'
+names(data)[names(data) == 'ch001_'] = 'enfants'
+names(data)[names(data) == 'ph006d10'] = 'cancer'
+names(data)[names(data) == 'br003_'] = 'time.smoking'
+names(data)[names(data) == 'br006_'] = 'cigarette'
+names(data)[names(data) == 'dn014_'] = 'statut.marital'
+names(data)[names(data) == 'br040_'] = 'alcool'
+names(data)[names(data) == 'br015_'] = 'sport.intense'
+names(data)[names(data) == 'br016_'] = 'sport.modéré'
+
+# CREATING COLUMNS UPA ----
+data = transform(data, UPA = (data$time.smoking * data$cigarette)/20)
+data = data[,-c(8,9)] #delete useless columns
+
+# RECODING SOME DATA ----
+data$cancer = data$cancer %>% 
+  fct_recode(
+    NULL = "Refusal",
+    NULL = "Don't know",
+    "0" = "Not selected",
+    "1" = "Selected"
+  ) %>%
+  as.character() %>%
+  as.numeric()
+
+data$cancer <- data$cancer %>%
+  as.character() %>%
+  fct_recode(
+    "No" = "0",
+    "Yes" = "1"
+  )
+
+data$aides.sociales = data$aides.sociales %>%
+  fct_recode(
+    NULL = "Don't know",
+    NULL = "Refusal"
+  )
+
+data$statut.marital = data$statut.marital %>%
+  fct_recode(
+    NULL = "Don't know",
+    "Married and together" = "Married and living together with spouse",
+    "Married and distance" = "Married, living separated from spouse"
+  )
+
+data$cancer = as.factor(data$cancer)
+data$enfants = as.integer(data$enfants)
+data$enfants[data$enfants < 0] = NA 
+data$alcool[data$alcool < 0] = NA
+data$UPA[data$UPA < 0] = NA
+data$income[data$income < 0] = NA
+data$income[data$income > 2500000] = NA # I considerer these as outliers and delete them
+
+data$sport.intense = data$sport.intense %>%
+  fct_recode(
+    NULL = "Don't know",
+    "<1/month" = "Hardly ever, or never",
+    ">1/week" = "More than once a week",
+    "1/week" = "Once a week",
+    "1-3/month" = "One to three times a month",
+    NULL = "Refusal"
+  )
+
+data$sport.modéré = data$sport.modéré %>%
+  fct_recode(
+    NULL = "Don't know",
+    "<1/month" = "Hardly ever, or never",
+    ">1/week" = "More than once a week",
+    "1/week" = "Once a week",
+    "1-3/month" = "One to three times a month",
+    NULL = "Refusal"
+  )
+
+data$sport.intense = data$sport.intense %>%
+  fct_relevel(
+    "<1/month", "1-3/month", "1/week", ">1/week"
+  )
+
+data$sport.modéré <- data$sport.modéré %>%
+  fct_relevel(
+    "<1/month", "1-3/month", "1/week", ">1/week"
+  )
+
+data$sport.intense <- data$sport.intense %>%
+  fct_relevel(
+    "<1/month", "1-3/month", "1/week", ">1/week"
+  )
+
+data$sport.modéré <- data$sport.modéré %>%
+  fct_relevel(
+    "<1/month", "1-3/month", "1/week", ">1/week"
+  )
+
+data$isced2011_r <- data$isced2011_r %>%
+  fct_recode(
+    NULL = "Don't know",
+    "code 1" = "ISCED-11 code 1",
+    "code 2" = "ISCED-11 code 2",
+    "code 3" = "ISCED-11 code 3",
+    "code 4" = "ISCED-11 code 4",
+    "code 5" = "ISCED-11 code 5",
+    "code 6" = "ISCED-11 code 6",
+    "code 7" = "ISCED-11 code 7",
+    "code 8" = "ISCED-11 code 8",
+    "code 0" = "None",
+    NULL = "Refusal"
+  )
+
+# IMPUTATION WITH RANDOM FOREST ----
+# COUNT NA'S (without nutrition data)
+data = data[,-c(1)] #delete merge column
+
+vec = is.na(data)
+print(vec)
+count = sum(vec)
+print(count)
+count/(10*46733)*100 #percentage of total NA's
+
+data_imputed = missForest(data)
+data = data_imputed$ximp
+
+# Z SCORE ----
+#It is the fastest and easiest way to do a z-score that I have found.
+#There is a probably a way more efficient method than this, but this one works well.
+Austria = subset(data, country == 'Austria')
+Belgium = subset(data, country == 'Belgium')
+Bulgaria = subset(data, country == 'Bulgaria')
+Croatia = subset(data, country == 'Croatia')
+Cyprus = subset(data, country == 'Cyprus')
+Czech.Republic = subset(data, country == 'Czech Republic')
+Denmark = subset(data, country == 'Denmark')
+Estonia = subset(data, country == 'Estonia')
+Finland = subset(data, country == 'Finland')
+France = subset(data, country == 'France')
+Germany = subset(data, country == 'Germany')
+Greece = subset(data, country == 'Greece')
+Hungary = subset(data, country == 'Hungary')
+Israel = subset(data, country == 'Israel')
+Italy = subset(data, country == 'Italy')
+Latvia = subset(data, country == 'Latvia')
+Lithuania = subset(data, country == 'Lithuania')
+Luxembourg = subset(data, country == 'Luxembourg')
+Malta = subset(data, country == 'Malta')
+Netherlands = subset(data, country == 'Netherlands')
+Poland = subset(data, country == 'Poland')
+Romania = subset(data, country == 'Romania')
+Slovakia = subset(data, country == 'Slovakia')
+Slovenia = subset(data, country == 'Slovenia')
+Spain = subset(data, country == 'Spain')
+Sweden = subset(data, country == 'Sweden')
+Switzerland = subset(data, country == 'Switzerland')
+
+Austria$income = scale(Austria$income)
+Belgium$income = scale(Belgium$income)
+Bulgaria$income = scale(Bulgaria$income)
+Croatia$income = scale(Croatia$income)
+Cyprus$income = scale(Cyprus$income)
+Czech.Republic$income = scale(Czech.Republic$income)
+Denmark$income = scale(Denmark$income)
+Estonia$income = scale(Estonia$income)
+Finland$income = scale(Finland$income)
+France$income = scale(France$income)
+Germany$income = scale(Germany$income)
+Greece$income = scale(Greece$income)
+Hungary$income = scale(Hungary$income)
+Israel$income = scale(Israel$income)
+Italy$income = scale(Italy$income)
+Latvia$income = scale(Latvia$income)
+Lithuania$income = scale(Lithuania$income)
+Luxembourg$income = scale(Luxembourg$income)
+Malta$income = scale(Malta$income)
+Netherlands$income = scale(Netherlands$income)
+Poland$income = scale(Poland$income)
+Romania$income = scale(Romania$income)
+Slovakia$income = scale(Slovakia$income)
+Slovenia$income = scale(Slovenia$income)
+Spain$income = scale(Spain$income)
+Sweden$income = scale(Sweden$income)
+Switzerland$income = scale(Switzerland$income)
+
+data = rbind(Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech.Republic,
+             Denmark, Estonia, Finland, France, Germany, Greece, Hungary,
+             Israel, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands,
+             Poland, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland)
+
+
+
+
+
+
+# END ----
+write.csv2(data, file='dataALL')
+test = read.csv2('dataALL')
