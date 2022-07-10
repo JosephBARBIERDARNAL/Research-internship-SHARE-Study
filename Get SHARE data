@@ -276,6 +276,7 @@ data = rbind(Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech.Republic,
 
 
 
+
 # END ----
 write.csv2(data, file='dataALL')
 test = read.csv2('dataALL')
