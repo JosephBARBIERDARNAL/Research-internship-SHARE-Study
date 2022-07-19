@@ -1,0 +1,281 @@
+# STARTING SESSION ----
+rm(list=ls())
+setwd("~/Desktop/STAGE")
+library(dplyr)
+library(vcd)
+library(clustMixType)
+library(missForest)
+library(Hmisc)
+library(Amelia)
+library(mice)
+library(rstatix)
+library(tidyr)
+library(tidyverse)
+library(labelled)
+library(questionr)
+library(gtsummary)
+library(RcmdrMisc)
+library(GGally)
+library(effects)
+library(ggeffects)
+library(ggplot2)
+library(car)
+theme_gtsummary_language("fr", decimal.mark = ",", big.mark = " ")
+theme_gtsummary_mean_sd()
+
+
+
+
+
+# GET DATA ----
+data = read.csv2('dataGH')
+data = data[,-c(1)]
+
+names(data)[names(data) == 'isced2011_r'] = 'isced_2011'
+
+data$isced_2011_rec <- data$isced_2011 %>%
+  fct_recode(
+    "Low" = "code 0",
+    "Low" = "code 1",
+    "Low" = "code 2",
+    "Medium" = "code 3",
+    "Medium" = "code 4",
+    "High" = "code 5",
+    "High" = "code 6",
+    "High" = "code 7",
+    "High" = "code 8"
+  )
+
+data$statut.marital <- data$statut.marital %>%
+  fct_relevel(
+    "Married and together", "Divorced", "Married and distance",
+    "Never married", "Registered partnership", "Widowed"
+  )
+
+data$aides.sociales = as.factor(data$aides.sociales)
+data$statut.marital = as.factor(data$statut.marital)
+data$country = as.factor(data$country)
+data$sport.intense = as.factor(data$sport.intense)
+data$sport.modéré = as.factor(data$sport.modéré)
+data$isced_2011 = as.factor(data$isced_2011)
+data$cancer = as.factor(data$cancer)
+data$enfants = as.integer(data$enfants)
+
+
+
+
+
+# EXPLORATION ----
+### income
+summary(data$income)
+hist(data$income, 40)
+boxplot(data$income)
+### upa 
+summary(data$UPA)
+hist(data$UPA, breaks = 25)
+boxplot(data$UPA)
+### alcool 
+summary(data$alcool)
+hist(data$alcool, breaks = 60)
+boxplot(data$alcool)
+### aides sociales 
+summary(data$aides.sociales)
+pie(table(data$aides.sociales))
+2167/(46733)*100
+### statut marital
+summary(data$statut.marital)
+pie(table(data$statut.marital))
+485/(46733-34509)*100
+### sport intense
+summary(data$sport.intense)
+pie(table(data$sport.intense))
+### sport modéré
+summary(data$sport.modéré)
+pie(table(data$sport.modéré))
+# DESCRIPTIF ----
+
+#univariée
+data %>%
+  select(cancer, UPA, social.aids, income, marital.status,
+         children, alcool, sport.modéré, sport.intense, isced_2011) %>%
+  tbl_summary(
+    statistic = all_categorical() ~ "{p}% [{n}]",
+    digits = all_categorical() ~ c(2, 0)
+  )
+
+#bivariée
+data %>%
+  select(cancer, UPA, aides.sociales, income, statut.marital,
+         enfants, alcool, sport.modéré, sport.intense, isced_2011_rec) %>%
+  tbl_summary(
+    by='cancer',
+    percent='row'
+  ) %>%
+  add_overall(last=TRUE)%>%
+  add_p()
+
+# TESTS ----
+data_Y = subset(data, cancer=='Yes')
+data_N = subset(data, cancer=='No')
+
+# income 
+summary(data$income)
+hist(data$income, 30,
+     main = "Distribution du revenu (en z-score par rapport au pays)",
+     col = 'green')
+
+var.test(data_Y$income, data_N$income)
+t.test(data_Y$income, data_N$income)
+
+# UPA 
+summary(data$UPA)
+hist(data$UPA, 30,
+     main = "Distribution de UPA",
+     col = 'red')
+
+var.test(data_Y$UPA, data_N$UPA)
+t.test(data_Y$UPA, data_N$UPA, var.equal=FALSE)
+cohens_d(data=data, UPA ~ cancer)
+
+# alcool 
+summary(data$alcool)
+hist(data$alcool, 40,
+     main = "Distribution de la consommation d'alcool",
+     col = 'blue')
+
+var.test(data_Y$alcool, data_N$alcool)
+t.test(data_Y$alcool, data_N$alcool)
+
+
+# enfants 
+summary(data_N$enfants)
+hist(data_N$enfants, 20,
+     main = "Distribution du nombres d'enfants",
+     col = 'pink')
+
+var.test(data_Y$enfants, data_N$enfants)
+t.test(data_Y$enfants, data_N$enfants, var.equal=FALSE)
+cohens_d(data=data, enfants ~ cancer)
+
+# aides sociales
+chisq.test(data$aides.sociales, data$cancer)
+
+# sport intense
+chisq.test(data$sport.intense, data$cancer)
+summary(data_Y$sport.intense)
+summary(data_N$sport.intense)
+sport_intense = matrix(c(1488,568,202,275,
+                         19200,13699,4852,6449), ncol=2)
+assocstats(sport_intense)
+
+# sport modéré
+chisq.test(data$sport.modéré, data$cancer)
+summary(data_Y$sport.modéré)
+summary(data_N$sport.modéré)
+sport_modéré = matrix(c(596,1423,183,331,
+                        6406,28142,3153,6499), ncol=2)
+assocstats(sport_modéré)
+
+# education
+chisq.test(data$isced_2011_rec, data$cancer)
+summary(data_Y$isced_2011_rec)
+summary(data_N$isced_2011_rec)
+education = matrix(c(773,977,783,
+                     14340,17326,12534), ncol=2)
+assocstats(education)
+
+# statut marital
+chisq.test(data$statut.marital, data$cancer)
+summary(data_Y$statut.marital)
+summary(data_N$statut.marital)
+marital = matrix(c(1308,108,9,81,33,994,
+                   21079,2544,149,1745,580,18103), ncol=2)
+assocstats(marital)
+
+
+
+
+
+
+# REGRESSION LOG ----
+
+names(data)[names(data) == 'enfants'] = 'children'
+names(data)[names(data) == 'statut.marital'] = 'marital.status'
+names(data)[names(data) == 'aides.sociales'] = 'social.aids'
+names(data)[names(data) == 'isced_2011_rec'] = 'isced_2011'
+
+regALL = glm(cancer ~ UPA + sport.intense + sport.modéré + children + alcool +
+            social.aids + income + isced_2011 + marital.status,
+              family = binomial(),
+              data = data)
+regALL %>% allEffects() %>% plot()
+ggcoef_model(regALL, exponentiate = TRUE)
+regALL %>%
+  tbl_regression(
+    intercept=TRUE,
+    exponentiate=TRUE,
+    add_estimate_to_reference_row=TRUE)
+summary(regALL)
+
+regSTEP = step(regALL)
+regSTEP %>% allEffects() %>% plot()
+ggcoef_model(regSTEP, exponentiate = TRUE)
+regSTEP %>%
+  tbl_regression(
+    intercept=TRUE,
+    exponentiate=TRUE,
+    add_estimate_to_reference_row=TRUE)
+
+
+
+
+
+# CLUSTERING ----
+
+data_for_cluster = subset(data,select=c('aides.sociales', 'income', 'statut.marital',
+                                          'enfants', 'alcool', 'sport.intense', 'cancer',
+                                          'sport.modéré', 'UPA', 'isced_2011_rec'))
+
+## Calculate withinss for k clusters 
+tot_withinss = c()
+for (i in 1:10) {
+  
+  kprot = kproto(x = data_for_cluster,
+                  k =i,
+                  nstart = 25)
+  
+  tot_withinss[i] = kprot$tot.withinss
+  
+  cat('The', i,'th iteration is finished\n') #in order to verify that the loop works as it should
+}
+
+tibble(k = 1:length(tot_withinss),
+       total_error = tot_withinss
+       ) %>%
+  ggplot(aes(x=k, y=total_error)) +
+  geom_point(size=2) + geom_line() + theme_bw() +
+  labs(x = 'Numbers of clusters', y = 'Total withinss')
+
+
+## I choose k=3 
+k3prototypes = kproto(x = data_for_cluster, 
+                k = 3,
+                nstart = 25)
+clprofiles(object = k3prototypes,
+           x = data_for_cluster)
+
+# create a new column with clusters
+data = mutate(data_for_cluster,
+              clusters = k3prototypes$cluster)
+data$clusters = as.factor(data$clusters)
+str(data)
+summary(data$clusters)
+
+
+
+
+
+
+# END ----
+write.csv2(x=data, file='data_and_clustered')
+test = read_csv2('data_and_clustered')
