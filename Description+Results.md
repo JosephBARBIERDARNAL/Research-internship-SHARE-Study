@@ -12,7 +12,7 @@ I will put the code (and the results !) I used for the analysis as soon as I fin
 
 
 
-# DESCRIPTIVE STATISTICS
+# Descriptive statistics
 
 Here are the descriptives statistics of my data.
 PS : I didn't have time to translate the name of the variables but I will do it soon.
@@ -32,7 +32,7 @@ The qualitative variables are only presented via a univariate descriptive analys
 
 
 
-# INFERENTIAL STATISTICS
+# Inferential statistics
 
 Here are the test I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
 
@@ -62,7 +62,7 @@ Marital status : p<0.001* ; v=0.022 (small size effect)
 
 
 
-# LOGISTIC REGRESSION
+# Logistic regression
 
 Here you will find the logistic regression model before and after applying the stepwise algorithm. I present here the significativity of the coefficients of the models. For the second regression, I go into more detail with the odds ratios as well as the confidence intervals (95%) of the latter, for each variable.
 
@@ -108,7 +108,7 @@ More than 1/week vigorous physical activity : p<0.001 ; OR=0.55 [0.50 - 0.62]
 
 More than 1/week moderate physical activity : p<0.001 ; OR=0.70 [0.62 - 0.78]
 
-# CLUSTERING WITH K-PROTOTYPES ALGORITHM
+# Clustering using k-prototypes algorithm
 
 Coming soon.
 
