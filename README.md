@@ -25,6 +25,8 @@ $\bar{X}$ = The average income of the individual's country
 
 σ = The standard deviation of income from the mean of individual i's country
 
+Mean = 0. SD = 1.
+
 ## 2 - UPA (quantitative)
 
 A score that represents an individual's total cigarette consumption. A score of X is interpreted as follows: Individual i has consumed X packs of cigarettes per day for one year OR has consumed 1 pack of cigarettes per day for X years. 
@@ -38,13 +40,19 @@ N = The number of cigarettes consumed per day, on average
 
 20 = The average number of cigarettes in a pack
 
+Mean = 22. SD = 17.
+
 ## 3 - Alcool (quantitative)
 
 The average number of units of alcohol consumed per week. 
 
+Mean = 6.4. SD = 6.9.
+
 ## 4 - Children (quantitative)
 
 The number of children alive at the time of the questionnaire.
+
+Mean = 2. SD = 1.
 
 ## 5 - Social aids (qualitative and dichotomic) 
 
@@ -70,7 +78,7 @@ Maried and living together ; Maried but don't live together ; Divorced ; Widowed
 
 ## 9 - Cancer incidence
 
-If individuals say that a doctor has ever told them that they have/had cancer, then the SHARE study considers these people to have cancer.
+If individuals say that a doctor has ever told them that they have/had cancer, then the SHARE Study considers these people to have cancer.
 
 # Relationship between cancer incidence and each variable
 
