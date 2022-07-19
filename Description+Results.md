@@ -56,11 +56,21 @@ These 2 variables have 5 different modalities :
 
 More than 1/week ; 1/week ; 1-3/month ; Less than 1/month.
 
-## 7 Education (measured with the ISCED-2011 index)
+## 7 Education (measured with the ISCED-2011 index ; qualitative)
 
 This index have 9 differents modalities, from early childhood education to getting a Ph.D.
 
 I declined it in 3 modalities: low, medium and high, as described [here](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=International_Standard_Classification_of_Education_(ISCED).
+
+## 8 - Marital status (qualitative)
+
+This variable has 6 different modalities :
+
+Maried and living together ; Maried but don't live together ; Divorced ; Widowed ; Registred partership ; Never maried
+
+## 9 - Cancer incidence
+
+If individuals say that a doctor has ever told them that they have/had cancer, then the SHARE study considers these people to have cancer.
 
 # Relationship between cancer incidence and each variable
 
