@@ -8,7 +8,11 @@ The goal is simply to explore as much as possible the available data, via variou
 
 I will put the code (and the results !) I used for the analysis as soon as I finish and clean it up.
 
-DESCRIPTIVE STATISTICS
+
+
+
+
+# DESCRIPTIVE STATISTICS
 
 Here are the descriptives statistics of my data.
 PS : I didn't have time to translate the name of the variables but I will do it soon.
@@ -26,7 +30,7 @@ The qualitative variables are only presented via a univariate descriptive analys
 
 
 
-INFERENTIAL STATISTICS
+# INFERENTIAL STATISTICS
 
 Here are the test I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
 
@@ -52,7 +56,11 @@ Education (ISCED-2011) : p=0.014* ; v=0.013 (small size effect)
 
 Marital status : p<0.001* ; v=0.022 (small size effect)
 
-LOGISTIC REGRESSION
+
+
+
+
+# LOGISTIC REGRESSION
 
 Here you will find the logistic regression model before and after applying the stepwise algorithm. I present here the significativity of the coefficients of the models. For the second regression, I go into more detail with the odds ratios as well as the confidence intervals (95%) of the latter, for each variable.
 
