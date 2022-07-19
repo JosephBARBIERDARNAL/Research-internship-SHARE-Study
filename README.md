@@ -1,15 +1,17 @@
-# Research internship on the SHARE Study (see [SHARE Project](http://www.share-project.org/home0.html))
+# Research project on the [SHARE Study](http://www.share-project.org/home0.html)
 
-I am currently doing analysis of epidemiological data from the SHARE Study.
+I am currently a research intership in analysis of epidemiological data from the [SHARE Study](http://www.share-project.org/home0.html).
 My subject is "Analysis of epidemiological data : relationship between socioeconomic status, risk behaviors and cancer incidence".
 
 I have access to a sample size of n=46733, which allows me to have a high statistical power and a lot of information to exploit. 
 
-The goal is simply to explore as much as possible the available data, via various statistical and learning methods. So far I did the descriptive statistics, some basics tests (chi-square and Student's test) to see if there are significant first differences in cancer incidence for each variable and logistic regressions (using the stepwise algorithm) to see which variables are the most predictive of cancer incidence. The next step is to perform clustering analysis (using k-prototyps algorithm, as proposed by Huang in 1998).
+The goal is simply to explore as much as possible the available data, via various statistical and learning methods. So far I did the descriptive statistics, some basics tests (chi-square and Student's test) to see if there are significant first differences in cancer incidence for each variable and logistic regressions (using the stepwise algorithm) to see which variables are the most predictive of cancer incidence. The next step is to perform clustering analysis (using k-prototyps algorithm, as proposed by [Huang in 1998](https://link.springer.com/article/10.1023/A:1009769707641)).
 
-I will put the code (and the results !) I used for the analysis as soon as I finish and clean it up.
+I will put the code (and the results) I used for the analysis as soon as I finish and clean it up. Most of it is already posted.
 
-IMPORTANT : I am publishing here only the results of the statistical analysis, not everything that was done for this research. Indeed, I omit here the literature review carried out beforehand as well as the general description of the collection of raw data (how and where were the questionnaires made? what is the population? Etc). Also, the results should be interpreted sparingly and put in the context of the original data. Finally, these results are not a substitute for peer-reviewed research papers (which is not the case here).
+I try to answer theses questions : What is the impact of socioeconomic status and risk behaviors on cancer incidence ? Are there profile categories in risk behaviors and SES that have different cancer prevalence ? Spoiler : yes, apparently. 
+
+IMPORTANT : I am publishing here only the results of the statistical analysis, not everything that was done for this research. Indeed, I omit here the literature review carried out beforehand as well as the general description of the collection of raw data (how and where were the questionnaires made? what is the population? Etc). Also, the results should be interpreted sparingly and put in the context of the original data. Finally, these results are not a substitute for peer-reviewed research papers (which is not the case here) on the same subject.
 
 
 
@@ -70,11 +72,11 @@ These 2 variables have 5 different modalities :
 
 More than 1/week ; 1/week ; 1-3/month ; Less than 1/month.
 
-## 7 Education (measured with the ISCED-2011 index ; qualitative)
+## 7 - Education (measured with the ISCED-2011 index ; qualitative)
 
 This index have 9 differents modalities, from early childhood education to getting a Ph.D.
 
-I declined it in 3 modalities: low, medium and high, as described [here](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=International_Standard_Classification_of_Education_(ISCED).
+I declined it in 3 modalities: low, medium and high, as described [here](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=International_Standard_Classification_of_Education_(ISCED)).
 
 ## 8 - Marital status (qualitative)
 
@@ -84,16 +86,16 @@ Maried and living together ; Maried but don't live together ; Divorced ; Widowed
 
 ## 9 - Cancer incidence
 
-If individuals say that a doctor has ever told them that they have/had cancer, then the SHARE Study considers these people to have cancer.
+If individuals say that a doctor has ever told them that they have/had cancer, then the [SHARE Study](http://www.share-project.org/home0.html) considers these people to have cancer.
 
 
 
 
 # Missing values 
 
-Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from D. Stekhoven and P. Bühlmann published in 2011 (available [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101)). 
+Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a [research paper from D. Stekhoven and P. Bühlmann published in 2011](https://academic.oup.com/bioinformatics/article/28/1/112/219101). 
 
-This imputation has a different interests : it does not require any particular distribution of variables (because it uses random forest as a model) and works for mixed data sets. 
+This imputation has a different interests : it does not require any particular distribution of variables (because it uses random forest as a model: i.e non-parametric) and works for mixed data sets. 
 
 
 
