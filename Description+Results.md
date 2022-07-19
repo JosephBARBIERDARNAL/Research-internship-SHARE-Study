@@ -21,6 +21,8 @@ The quantitative variables are presented via a bivariate (in relation to cancer)
 
 The qualitative variables are only presented via a univariate descriptive analysis. The percentages refer to the proportion of my sample that belongs to the modality in question.
 
+
+
 <img width="877" alt="Screenshot 2022-07-19 at 16 21 31" src="https://user-images.githubusercontent.com/79746670/179773702-b9e40a31-ea18-4283-aa1b-88fd8eeb5ffc.png">
 <img width="878" alt="Screenshot 2022-07-19 at 16 21 49" src="https://user-images.githubusercontent.com/79746670/179773770-867cf194-38d7-404c-9c25-e06d72c24352.png">
 <img width="878" alt="Screenshot 2022-07-19 at 16 22 01" src="https://user-images.githubusercontent.com/79746670/179773823-cccf133b-116a-4602-ad90-376174a96127.png">
@@ -34,7 +36,7 @@ The qualitative variables are only presented via a univariate descriptive analys
 
 Here are the test I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
 
-1 - Quantitatives variables (Student's test or Welch's test when there was detection of heteroskedasticity)
+## 1 - Quantitatives variables (Student's test or Welch's test when there was detection of heteroskedasticity)
 
 Income : p=0.75
 
@@ -44,7 +46,7 @@ Alcool : p=0.47
 
 Children : p=0.03* ; d=-0.044 (small size effect)
 
-2 - Qualitative variables (Chi-square's test with Yates's correction if necessary)
+## 2 - Qualitative variables (Chi-square's test with Yates's correction if necessary)
 
 Social aids (housing allowances, poverty reliefs etc) : p=0.49
 
@@ -70,31 +72,45 @@ The first regression with all the variables
 The new regression after applying the stepwise algorithm
 <img width="1566" alt="Screenshot 2022-07-19 at 16 26 15" src="https://user-images.githubusercontent.com/79746670/179774822-1a8985d2-86e7-4082-82b2-27fa89bec90b.png">
 
-Marital status (reference modality : Married and live together)
+## 1 - Marital status (reference modality : Married and live together)
+
 Divorced : p<0.001 ; OR=0.65 [0.52 - 0.79]
+
 Never married : p=0.002 ; OR=0.70 [0.54 - 0.89]
+
 Married but not living together : p=0.782 ; OR=0.91 [0.43 - 1.70]
+
 Registred relationship : p=0.938 ; OR=0.99 [0.68 - 1.39]
+
 Widowed : p<0.001 ; OR=0.83 [0.76 - 0.91]
 
-Educational level (reference modality : Low)
+## 2 - Educational level (reference modality : Low)
+
 Medium : p<0.001 ; OR=1.21 [1.09 - 1.34]
+
 High : p<0.001 ; OR=1.53 [1.37 - 1.71]
 
-UPA's score
+## 3 - UPA's score
+
 UPA : p<0.001 ; OR=1.01 [1.00 - 1.01]
 
-Sport (reference modality : Less than 1/month, for moderate and vigorous physical activity)
+## 4 - Sport (reference modality : Less than 1/month, for moderate and vigorous physical activity)
+
 1-3/month vigorous physical activity : p<0.001 ; OR=0.56 [0.48 - 0.66]
+
 1-3/month moderate physical activity : p<0.001 ; OR=0.72 [0.60 - 0.85]
+
 1/week vigorous physical activity : p<0.001 ; OR=0.57 [0.50 - 0.66]
+
 1/week moderate physical activity : p<0.001 ; OR=0.65 [0.56 - 0.75]
+
 More than 1/week vigorous physical activity : p<0.001 ; OR=0.55 [0.50 - 0.62]
+
 More than 1/week moderate physical activity : p<0.001 ; OR=0.70 [0.62 - 0.78]
 
+# CLUSTERING WITH K-PROTOTYPES ALGORITHM
 
-
-
+Coming soon.
 
 
 
