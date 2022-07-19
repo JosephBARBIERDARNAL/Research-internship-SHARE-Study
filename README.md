@@ -1,4 +1,5 @@
 # Research internship on the SHARE Study (see [SHARE Project](http://www.share-project.org/home0.html))
+
 I am currently doing analysis of epidemiological data from the SHARE Study.
 My subject is "Analysis of epidemiological data : relationship between socioeconomic status, risk behaviors and cancer incidence".
 
@@ -9,6 +10,11 @@ The goal is simply to explore as much as possible the available data, via variou
 I will put the code (and the results !) I used for the analysis as soon as I finish and clean it up.
 
 IMPORTANT : I am publishing here only the results of the statistical analysis, not everything that was done for this research. Indeed, I omit here the literature review carried out beforehand as well as the general description of the collection of raw data (how and where were the questionnaires made? what is the population? Etc). Also, the results should be interpreted sparingly and put in the context of the original data. Finally, these results are not a substitute for peer-reviewed research papers (which is not the case here).
+
+
+
+
+
 
 # Description of the variables used
 
@@ -107,6 +113,11 @@ Education (ISCED-2011) : p=0.014* ; v=0.013 (small size effect)
 Marital status : p<0.001* ; v=0.022 (small size effect)
 
 
+
+
+# Missing values 
+
+Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from D. Stekhoven and P. Bühlmann published in 2011 (available [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101)). 
 
 
 
