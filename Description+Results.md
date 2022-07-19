@@ -12,7 +12,7 @@ IMPORTANT : I am publishing here only the results of the statistical analysis, n
 
 # Description of the variables used
 
-## 1 - Income 
+## 1 - Income (quantitative)
 
 Last year's annual income after payment of taxes (converted in euro). I transformed this variable into a z-score. 
 ### $z_i = \frac{X_i - \bar{X}}{σ}$
@@ -25,7 +25,7 @@ $\bar{X}$ = The average income of the individual's country
 
 σ = The standard deviation of income from the mean of individual i's country
 
-## 2 - UPA
+## 2 - UPA (quantitative)
 
 A score that represents an individual's total cigarette consumption. A score of X is interpreted as follows: Individual i has consumed X packs of cigarettes per day for one year OR has consumed 1 pack of cigarettes per day for X years. 
 ### $UPA = \frac{N \times Q}{20}$
@@ -38,10 +38,29 @@ N = The number of cigarettes consumed per day, on average
 
 20 = The average number of cigarettes in a pack
 
-## 3 - Alcool
+## 3 - Alcool (quantitative)
 
-This variable corresponds to the average number of units of alcohol consumed per week
+The average number of units of alcohol consumed per week. 
 
+## 4 - Children (quantitative)
+
+The number of children alive at the time of the questionnaire.
+
+## 5 - Social aids (qualitative and dichotomic) 
+
+The fact of receiving, or not, social assistance such as poverty reliefs, child benefits or housing allowances. 
+
+## 6 - Frequency of sport (moderate and vigorous, both qualitatives with the same modalities)
+
+These 2 variables have 5 different modalities :
+
+More than 1/week ; 1/week ; 1-3/month ; Less than 1/month.
+
+## 7 Education (measured with the ISCED-2011 index)
+
+This index have 9 differents modalities, from early childhood education to getting a Ph.D.
+
+I declined it in 3 modalities: low, medium and high, as described [here](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=International_Standard_Classification_of_Education_(ISCED).
 
 # Relationship between cancer incidence and each variable
 
