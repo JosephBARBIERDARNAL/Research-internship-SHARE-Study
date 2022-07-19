@@ -1,6 +1,6 @@
 # Research project on the [SHARE Study](http://www.share-project.org/home0.html)
 
-I am currently a research intership in analysis of epidemiological data from the [SHARE Study](http://www.share-project.org/home0.html).
+I am currently doing a research intership in analysis of epidemiological data from the [SHARE Study](http://www.share-project.org/home0.html).
 My subject is "Analysis of epidemiological data : relationship between socioeconomic status, risk behaviors and cancer incidence".
 
 I have access to a sample size of n=46733, which allows me to have a high statistical power and a lot of information to exploit. 
@@ -9,7 +9,7 @@ The goal is simply to explore as much as possible the available data, via variou
 
 I will put the code (and the results) I used for the analysis as soon as I finish and clean it up. Most of it is already posted.
 
-I try to answer theses questions : What is the impact of socioeconomic status and risk behaviors on cancer incidence ? Are there profile categories in risk behaviors and SES that have different cancer prevalence ? Spoiler : yes, apparently. 
+I try to answer theses questions : What is the impact of socioeconomic status and risk behaviors on cancer incidence ? Are there profile categories in risk behaviors and socioeconomic status that have different cancer prevalence ? Spoiler : yes, apparently. 
 
 IMPORTANT : I am publishing here only the results of the statistical analysis, not everything that was done for this research. Indeed, I omit here the literature review carried out beforehand as well as the general description of the collection of raw data (how and where were the questionnaires made? what is the population? Etc). Also, the results should be interpreted sparingly and put in the context of the original data. Finally, these results are not a substitute for peer-reviewed research papers (which is not the case here) on the same subject.
 
