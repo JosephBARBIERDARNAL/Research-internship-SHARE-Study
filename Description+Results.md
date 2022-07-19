@@ -8,33 +8,44 @@ The goal is simply to explore as much as possible the available data, via variou
 
 I will put the code (and the results !) I used for the analysis as soon as I finish and clean it up.
 
+IMPORTANT : I am publishing here only the results of the statistical analysis, not everything that was done for this research. Indeed, I omit here the literature review carried out beforehand as well as the general description of the collection of raw data (how and where were the questionnaires made? what is the population? Etc). Also, the results should be interpreted sparingly and put in the context of the original data. Finally, these results are not a substitute for peer-reviewed research papers (which is not the case here).
+
+# Description of the variables used
+
+## 1 - Income 
+
+Last year's annual income after payment of taxes (converted in euro). I transformed this variable into a z-score. 
+### $z_i = \frac{X_i - \bar{X}}{σ}$
+
+With:
+
+$X_i$ = The income of individual i
+
+$\bar{X}$ = The average income of the individual's country
+
+σ = The standard deviation of income from the mean of individual i's country
+
+## 2 - UPA
+
+A score that represents an individual's total cigarette consumption. A score of X is interpreted as follows: Individual i has consumed X packs of cigarettes per day for one year OR has consumed 1 pack of cigarettes per day for X years. 
+### $UPA = \frac{N \times Q}{20}$
+
+With:
+
+Q = The total amount of time the person has smoked throughout their life
+
+N = The number of cigarettes consumed per day, on average
+
+20 = The average number of cigarettes in a pack
+
+## 3 - Alcool
+
+This variable corresponds to the average number of units of alcohol consumed per week
 
 
+# Relationship between cancer incidence and each variable
 
-
-# Descriptive statistics
-
-Here are the descriptives statistics of my data.
-PS : I didn't have time to translate the name of the variables but I will do it soon.
-
-The quantitative variables are presented via a bivariate (in relation to cancer) and univariate descriptive analysis. The given values represent the mean and standard deviation in the following form : mean (± sd). I emphasize that the income variable is here a z-score.
-
-The qualitative variables are only presented via a univariate descriptive analysis. The percentages refer to the proportion of my sample that belongs to the modality in question.
-
-
-
-<img width="877" alt="Screenshot 2022-07-19 at 16 21 31" src="https://user-images.githubusercontent.com/79746670/179773702-b9e40a31-ea18-4283-aa1b-88fd8eeb5ffc.png">
-<img width="878" alt="Screenshot 2022-07-19 at 16 21 49" src="https://user-images.githubusercontent.com/79746670/179773770-867cf194-38d7-404c-9c25-e06d72c24352.png">
-<img width="878" alt="Screenshot 2022-07-19 at 16 22 01" src="https://user-images.githubusercontent.com/79746670/179773823-cccf133b-116a-4602-ad90-376174a96127.png">
-<img width="878" alt="Screenshot 2022-07-19 at 16 22 16" src="https://user-images.githubusercontent.com/79746670/179773887-dc442ffe-860c-41d5-9cb9-a1afe21b0fae.png">
-<img width="878" alt="Screenshot 2022-07-19 at 16 22 30" src="https://user-images.githubusercontent.com/79746670/179773944-afaed64d-5c8c-4332-a682-b2ca50eaceac.png">
-
-
-
-
-# Inferential statistics
-
-Here are the test I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
+Here are the tests I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
 
 ## 1 - Quantitatives variables (Student's test or Welch's test when there was detection of heteroskedasticity)
 
