@@ -4,6 +4,6 @@ My subject is "Analysis of epidemiological data : relationship between socioecon
 
 I have access to a sample size of n=46733, which allows me to have a high statistical power and a lot of information to exploit. 
 
-The goal is simply to explore as much as possible the available data, via various statistical and learning methods. So far I did the descriptive statistics, some basics tests (chi-square and Student's test) to see if there are significant first differences in cancer incidence for each variable and logistic regressions (using the stepwise algorithm) to see which variables are more predictive of cancer incidence. The next step is to perform clustering analysis (using k-prototyps algorithm, as proposed by Huang in 1998) and factor analysis of mixed data.
+The goal is simply to explore as much as possible the available data, via various statistical and learning methods. So far I did the descriptive statistics, some basics tests (chi-square and Student's test) to see if there are significant first differences in cancer incidence for each variable and logistic regressions (using the stepwise algorithm) to see which variables are more predictive of cancer incidence. The next step is to perform clustering analysis (using k-prototyps algorithm, as proposed by Huang in 1998).
 
 I will put the code (and the results !) I used for the analysis as soon as I finish and clean it up.
