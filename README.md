@@ -93,7 +93,7 @@ If individuals say that a doctor has ever told them that they have/had cancer, t
 
 Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from D. Stekhoven and P. Bühlmann published in 2011 (available [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101)). 
 
-This imputation has a different interests : it does not require any particular distribution of variables and works for mixed data sets. 
+This imputation has a different interests : it does not require any particular distribution of variables (because it uses random forest as a model) and works for mixed data sets. 
 
 
 
