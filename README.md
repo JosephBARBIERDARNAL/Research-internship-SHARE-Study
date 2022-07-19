@@ -86,6 +86,17 @@ Maried and living together ; Maried but don't live together ; Divorced ; Widowed
 
 If individuals say that a doctor has ever told them that they have/had cancer, then the SHARE Study considers these people to have cancer.
 
+
+
+
+# Missing values 
+
+Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from D. Stekhoven and P. Bühlmann published in 2011 (available [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101)). 
+
+This imputation has a different interests : it does not require any particular distribution of variables and works for mixed data sets. 
+
+
+
 # Relationship between cancer incidence and each variable
 
 Here are the tests I did. This is not the main part of the analysis but I consider it as a good start when doing data analysis. All tests were done for each variable in relation to the cancer incidence and see if there were significant differences (at the p<0.05 risk level). I also calculate the Cohen's d and Cramer's V for the significant tests.
@@ -114,10 +125,6 @@ Marital status : p<0.001* ; v=0.022 (small size effect)
 
 
 
-
-# Missing values 
-
-Because there was a lot of missing values, I have decided to fill them in. Main problem : I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from D. Stekhoven and P. Bühlmann published in 2011 (available [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101)). 
 
 
 
