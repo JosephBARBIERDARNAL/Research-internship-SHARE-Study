@@ -1,4 +1,4 @@
-# Research-internship-SHARE-Study
+# Research internship on the SHARE Study (see [SHARE Project](http://www.share-project.org/home0.html))
 I am currently doing analysis of epidemiological data from the SHARE Study.
 My subject is "Analysis of epidemiological data : relationship between socioeconomic status, risk behaviors and cancer incidence".
 
