@@ -139,9 +139,11 @@ Marital status: p<0.001* ; v=0.022 (small size effect)
 Here you will find the logistic regression model before and after applying the stepwise algorithm. I present here the significativity of the coefficients of the models. For the second regression, I go into more detail with the odds ratios as well as the confidence intervals (95%) of the latter, for each variable.
 
 The first regression with all the variables
+
 <img width="1570" alt="Screenshot 2022-07-19 at 16 25 38" src="https://user-images.githubusercontent.com/79746670/179774717-d967d6c1-3006-4119-96a4-04744519b71a.png">
 
 The new regression after applying the stepwise algorithm
+
 <img width="1566" alt="Screenshot 2022-07-19 at 16 26 15" src="https://user-images.githubusercontent.com/79746670/179774822-1a8985d2-86e7-4082-82b2-27fa89bec90b.png">
 
 ## 1 - Marital status (reference modality : Married and live together)
@@ -182,11 +184,22 @@ More than 1/week moderate physical activity: p<0.001 ; OR=0.70 [0.62 - 0.78]
 
 # Clustering using k-prototypes algorithm
 
-Coming soon.
+In order to determine the number k of clusters I will have, I used the elbow method. I have calculated the total wihtinss for 1 to 10 clusters and create this plot in order the choose the optimal number of k. However, it does not seem to have an obvious solution, so I choosed k=3. It would have been perfectly possible to choose a different k. 
 
+<img width="1723" alt="elbow clusters" src="https://user-images.githubusercontent.com/79746670/179923679-17ff7436-05bf-4c18-8a73-c13d443cd112.png">
 
+I present below the caracteristics of the 3 clusters for each variable with a plot. I will explain just after how I interpret these. 
 
-
+![image](https://user-images.githubusercontent.com/79746670/179924102-63bed09d-b926-4d5f-9677-1c73c92c1c1f.png)
+![image](https://user-images.githubusercontent.com/79746670/179924412-7f0b05a3-e977-4dd5-bba1-e56282260065.png)
+![image](https://user-images.githubusercontent.com/79746670/179924436-21aac140-c620-4954-b1c0-3dbf97eb0e40.png)
+![image](https://user-images.githubusercontent.com/79746670/179924456-95b50a52-5ea4-4451-b15f-bfdfaf32cd0f.png)
+![image](https://user-images.githubusercontent.com/79746670/179924474-571a99ab-f4fb-4791-ab89-0f8ccf21a762.png)
+![image](https://user-images.githubusercontent.com/79746670/179924487-7d54e178-147e-4e6f-9f43-03d992a89a7f.png)
+![image](https://user-images.githubusercontent.com/79746670/179924497-0efed876-dd4f-4275-9816-e92337451dc8.png)
+![image](https://user-images.githubusercontent.com/79746670/179924519-6a66f282-b23c-4fb8-bf57-eb5ab1a1df71.png)
+![image](https://user-images.githubusercontent.com/79746670/179924559-5d12decc-6827-4f01-b931-07b955ea04b7.png)
+![image](https://user-images.githubusercontent.com/79746670/179924578-6f58bf0a-40bb-4e31-a46b-2b8567dcf2a9.png)
 
 
 
