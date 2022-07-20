@@ -136,7 +136,7 @@ Marital status: p<0.001* ; v=0.022 (small size effect)
 
 # Logistic regression
 
-Here you will find the logistic regression model before and after applying the stepwise algorithm. I present here the significativity of the coefficients of the models. For the second regression, I go into more detail with the odds ratios as well as the confidence intervals (95%) of the latter, for each variable.
+Here you will find the logistic regression model before and after applying the stepwise algorithm (using backward elimination via the information's criterion AIC). I present here the significativity of the coefficients of the models. For the second regression, I go into more detail with the odds ratios as well as the confidence intervals (95%) of the latter, for each variable.
 
 The first regression with all the variables
 
