@@ -228,7 +228,7 @@ I present here the carcateristics of each cluster for each variable. The modalit
 
 ## 4 - Interpretation
 
-I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers.
+I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers. In order to get size effect, I suggere you to just look at the raw values in table above.
 
 
 ### Cluster 1
