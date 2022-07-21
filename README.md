@@ -42,7 +42,7 @@ A score that represents an individual's total cigarette consumption. A score of 
 
 With:
 
-Q = The total amount of time the person has smoked throughout their life
+Q = The total amount of time the person has smoked throughout their life (in years)
 
 N = The number of cigarettes consumed per day, on average
 
@@ -230,11 +230,13 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 - a high UPA score, with all extreme individuals
 
-- Rarely participate in high-intensity sports and only slightly in low-intensity sports 
+- rarely participate in high-intensity sports and only slightly in low-intensity sports 
 
 - a low or medium level of education
 
 - mostly widowed 
+
+- have more children on average
 
 - slightly more often on social assistance
 
