@@ -228,7 +228,7 @@ I present here the carcateristics of each cluster for each variable. The modalit
 
 ## 4 - Interpretation
 
-I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers. In order to get the size effect, I suggere you to just look at the raw values in table above. For example, the UPA's score is significantly different between each cluster, but cluster 1 has a UPA's score a lot higher than cluster 2 and 3, but cluster 2 has juste a little higher score than cluster 3 (but also significant). 
+I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers. In order to get the size effect, I suggere you to just look at the raw values in table above. For example, the UPA's score is significantly (p<0.001) different between each cluster, but cluster 1 has a UPA's score a lot higher than cluster 2 and 3, but cluster 3 has juste a little higher score than cluster 2 (but also significant with p<0.001). 
 
 
 ### Cluster 1
