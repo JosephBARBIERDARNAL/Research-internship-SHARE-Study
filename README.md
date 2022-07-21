@@ -230,7 +230,6 @@ I present here the carcateristics of each cluster for each variable. The modalit
 
 I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers.
 
-For the cluster 1, the first p-value refers to the cluster 2 and the second to the cluster 3. For the cluster 2, the first p-value refers to the cluster 1 and the second to the cluster 3. For the cluster 3, the first p-value refers to the cluster 1 and the second to the cluster 2. 
 
 ### Cluster 1
 
