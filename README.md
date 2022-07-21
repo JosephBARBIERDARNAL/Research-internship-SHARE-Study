@@ -236,9 +236,9 @@ For the cluster 1, the first p-value refers to the cluster 2 and the second to t
 
 The first cluster (green/turquoise) refers to individuals with the following characteristics:
 
-- relatively high alcohol consumption (p<0.001 ; p<0.001)
+- higher alcohol consumption than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
-- a high UPA score, with all extreme individuals (p<0.001 ; p<0.001)
+- a high UPA score than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
 - rarely participate in high-intensity sports and only slightly in low-intensity sports 
 
@@ -246,9 +246,9 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 - mostly widowed 
 
-- an income superior (p<0.001 ; p<0.001)
+- an income superior than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
-- have more children (p<0.001 ; p<0.001)
+- have more children than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
 - slightly more often on social assistance
 
@@ -258,11 +258,11 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 The second cluster (yellow) refers to individuals with the following characteristics
 
-- a relatively low alcohol consumption (p<0.001 ; p=0.09)
+- a relatively low alcohol consumption than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
 - a low UPA score (p<0.001 ; p<0.001)
 
-- a lower income than cluster 1 (p<0.001 ; p<0.001)
+- a lower income than cluster 1 (p<0.001) but equivalent than cluster 3 (p=0.09)
 
 - a majority of them rarely practice high-intensity sports and a majority of them regularly practice low-intensity sports
 
@@ -274,15 +274,15 @@ The second cluster (yellow) refers to individuals with the following characteris
 
 The third cluster (purple) designates individuals with the following characteristics
 
-- an alcool consumption different of the other clusters (p<0.001 ; p<0.001)
+- a lower alcool consumption than cluster 1 (p<0.001) but superior than cluster 2 (p<0.001)
 
-- an UPA score lower than cluster 1 but superior than cluster 2 (p<0.001 ; p<0.001)
+- an UPA score lower than cluster 1 (p<0.001) but superior than cluster 2 (p<0.001)
 
 - a predominantly regular practice of sport, at low or high intensity
 
 - a medium or high level of education
 
-- a lower income than cluster 1 (p<0.001 ; p=0.09)
+- a lower income than cluster 1 (p<0.001) but equivalent to cluster 2 (p=0.09)
 
 - less children than cluster 1 (p<0.001) but more than cluster 2 (p=0.048)
 
