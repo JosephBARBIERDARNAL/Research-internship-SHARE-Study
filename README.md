@@ -220,7 +220,15 @@ I present below the caracteristics of the 3 clusters for each variable with a pl
 
 ![image](https://user-images.githubusercontent.com/79746670/179924578-6f58bf0a-40bb-4e31-a46b-2b8567dcf2a9.png)
 
-## 3 - Interpretation
+## 3 - Description
+
+I present here the carcateristics of each cluster for each variable. The modalities in the same colour are for the variable. The figures in bold are just the ones >50% for a modality. Quantitative variables are represent as follows: mean (±sd).
+
+<img width="867" alt="Screenshot 2022-07-21 at 15 25 48" src="https://user-images.githubusercontent.com/79746670/180224885-84c6e5d6-d058-4d9a-b105-5e597af8746f.png">
+
+## 4 - Interpretation
+
+I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers
 
 ### Cluster 1
 
@@ -236,7 +244,7 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 - mostly widowed 
 
-- have more children on average
+- have more children (p<0.001)
 
 - slightly more often on social assistance
 
