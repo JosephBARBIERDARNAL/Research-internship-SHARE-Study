@@ -222,7 +222,7 @@ I present below the caracteristics of the 3 clusters for each variable with a pl
 
 ## 3 - Description
 
-I present here the carcateristics of each cluster for each variable. The modalities in the same colour are for the variable. The figures in bold are just the ones >50% for a modality. Quantitative variables are represent as follows: mean (±sd).
+I present here the carcateristics of each cluster for each variable. The modalities in the same colour are for the same variable. The figures in bold are just the ones >50% for a modality. Quantitative variables are represent as follows: mean (±sd).
 
 <img width="867" alt="Screenshot 2022-07-21 at 15 25 48" src="https://user-images.githubusercontent.com/79746670/180224885-84c6e5d6-d058-4d9a-b105-5e597af8746f.png">
 
