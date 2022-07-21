@@ -97,7 +97,7 @@ Yes = 5.42%, No = 94.58%
 
 # Missing values 
 
-Because there was a lot of missing values, I have decided to fill them in. Main problem: I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values. It is based on a research paper from [D. Stekhoven and P. Bühlmann published in 2011](https://academic.oup.com/bioinformatics/article/28/1/112/219101). 
+Because there was a lot of missing values, I have decided to fill them in. Main problem: I have a mixed data-type and most of the imputation's algorithms do not overcome this problem. So I have decided to use a random forest algorithm who predicts the missing values with the observed values (if we summarize a lot...). It is based on a research paper from D. Stekhoven and P. Bühlmann published [here](https://academic.oup.com/bioinformatics/article/28/1/112/219101). 
 
 This imputation has a different interests: it does not require any particular distribution of variables (because it uses random forest as a model: i.e non-parametric) and works for mixed data sets. 
 
