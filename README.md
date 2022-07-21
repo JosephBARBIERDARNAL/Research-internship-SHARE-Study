@@ -244,7 +244,7 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 - a low or medium level of education
 
 - mostly widowed 
-
+ 
 - higher income than cluster 1 (p<0.001) and cluster 2 (p<0.001)
 
 - have more children than cluster 1 (p<0.001) and cluster 2 (p<0.001)
