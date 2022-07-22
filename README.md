@@ -228,16 +228,13 @@ I present here the carcateristics of each cluster for each variable. The modalit
 
 ## 4 - Interpretation
 
-I did a lot of tests to compare the clusters, but I just give here the associated p-value in order to avoid overloading with not necessarily very interesting numbers. In order to get the size effect, I suggere you to just look at the raw values in table above. For example, the UPA's score is significantly (p<0.001) different between each cluster, but cluster 1 has a UPA's score a lot higher than cluster 2 and 3, but cluster 3 has juste a little higher score than cluster 2 (but also significant with p<0.001). 
-
-
 ### Cluster 1
 
 The first cluster (green/turquoise) refers to individuals with the following characteristics:
 
-- higher alcohol consumption than cluster 1 (p<0.001) and cluster 2 (p<0.001)
+- higher alcohol consumption
 
-- higher UPA's score than cluster 1 (p<0.001) and cluster 2 (p<0.001)
+- higher UPA's score 
 
 - rarely participate in high-intensity sports and only slightly in low-intensity sports 
 
@@ -245,9 +242,9 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 - mostly widowed 
  
-- higher income than cluster 1 (p<0.001) and cluster 2 (p<0.001)
+- higher income 
 
-- have more children than cluster 1 (p<0.001) and cluster 2 (p<0.001)
+- have more children
 
 - slightly more often on social assistance
 
@@ -257,11 +254,11 @@ The first cluster (green/turquoise) refers to individuals with the following cha
 
 The second cluster (yellow) refers to individuals with the following characteristics
 
-- lower alcohol consumption than cluster 1 (p<0.001) and cluster 2 (p<0.001)
+- lower alcohol consumption 
 
-- lower UPA's score than cluster 1 (p<0.001) and cluster 3 (p<0.001)
+- lower UPA's score 
 
-- lower income than cluster 1 (p<0.001) but equivalent than cluster 3 (p=0.09)
+- lower income 
 
 - a majority of them rarely practice high-intensity sports and a majority of them regularly practice low-intensity sports
 
@@ -273,17 +270,15 @@ The second cluster (yellow) refers to individuals with the following characteris
 
 The third cluster (purple) designates individuals with the following characteristics
 
-- lower alcool consumption than cluster 1 (p<0.001) but superior than cluster 2 (p<0.001)
-
-- an UPA score lower than cluster 1 (p<0.001) but superior than cluster 2 (p<0.001)
+- lower alcool consumption than cluster 1 but superior than cluster 3
 
 - a predominantly regular practice of sport, at low or high intensity
 
 - a medium or high level of education
 
-- lower income than cluster 1 (p<0.001) but equivalent to cluster 2 (p=0.09)
+- lower income 
 
-- less children than cluster 1 (p<0.001) but more than cluster 2 (p=0.048)
+- less children 
 
 - almost exclusively married and living with their partner
 
